@@ -3,7 +3,9 @@ from frappe.utils import validate_json_string
 from frappe import _
 from frappe.utils import now_datetime
 from frappe.exceptions import AuthenticationError, ValidationError, PermissionError
-from frappe.contacts.doctype.address.address import get_address_display
+MAX_SYNC_ITEMS = 1
+
+
 # def create_sales_invoice(data,headers):
 #     if __authenticate_request():
 #         try:
@@ -103,26 +105,107 @@ def __authenticate_request(required_role = "Insurance API",origin= None):
         frappe.throw(f"User {frappe.session.user} is not authorized for this transaction",frappe.PermissionError)
 
 
-def create_channel_partner(headers: dict = None, payload: dict = None):
+def create_channel_partners(headers:dict, payload:dict):
     """
-    Creates a new Channel Partner record in ERPNext
-    from an authenticated external request.
+        Iterates over the payload and create Channel Partners. Called by the API endpoint.
+    """
+     # --- Authentication ---
+    user = __authenticate_request()
+    # --- Validate payload ---
+    if not payload:
+        return __api_response(400, "error", "Missing request payload", "Payload cannot be empty")
+
+    data = frappe.parse_json(payload)
+    partner_list = data.get("channel_partners")
+
+    if not partner_list or not isinstance(partner_list, list):
+        return __api_response(400, "error", "Invalid payload", "Expected a list under 'channel_partners'")
+
+    if len(partner_list) <= MAX_SYNC_ITEMS:
+        return process_partner_list_sync(partner_list, user, headers)
+    else:
+        job = frappe.enqueue(
+            "jibl.utils.process_partner_list_sync",
+            queue="long",
+            timeout=1800, 
+            job_name=f"Batch Create/Update Channel Partners ({len(partner_list)} records)",
+            partner_list=partner_list,
+            user=user,
+            headers=headers
+        )
+        return {
+            "status": "queued",
+            "processed_by": user,
+            "message": f"{len(partner_list)} partners are being processed in the background"
+        }
+
+
+    
+def process_single_partner(idx, partner_data, user, headers):
+    """
+    Create or update a single channel partner and return result dict
+    """
+    try:
+        existing_partner = __find_existing_partner(partner_data)
+        if existing_partner:
+            updated_partner = __update_channel_partner(partner_data)
+            return {
+                "index": idx,
+                "status": "success",
+                "action": "updated",
+                "partner_name": updated_partner
+            }
+        else:
+            created_partner = __create_channel_partner(user, headers, partner_data)
+            return {
+                "index": idx,
+                "status": "success",
+                "action": "created",
+                "partner_name": created_partner
+            }
+
+    except Exception as e:
+        frappe.log_error(
+            title=f"Error processing partner at index {idx}",
+            message=f"{frappe.get_traceback()}\nPayload: {partner_data}"
+        )
+        return {
+            "index": idx,
+            "status": "error",
+            "error": str(e)
+        }
+
+# -------------------- Synchronous List Processing -------------------- #
+def process_partner_list_sync(partner_list, user, headers):
+    """
+    Processes a list of partners synchronously and returns summary + results
+    """
+    results = [
+        process_single_partner(idx, partner_data, user, headers)
+        for idx, partner_data in enumerate(partner_list, start=1)
+    ]
+
+    return {
+        "status_code": 200,
+        "status": "success",
+        "processed_by": user,
+        "processed_at": str(now_datetime()),
+        "summary": {
+            "total": len(results),
+            "success": len([r for r in results if r["status"] == "success"]),
+            "failed": len([r for r in results if r["status"] == "error"])
+        },
+        "results": results
+    }
+
+
+
+def __create_channel_partner(user,headers, data):
+    """
+    Creates a new Channel Partner record in ERPNext from an authenticated external request.
     Returns a REST-compliant JSON response.
     """
     try:
-        # --- Authentication ---
-        user = __authenticate_request()
-
-        # --- Validate payload ---
-        if not payload:
-            frappe.log_error(
-                title="Missing Request Payload",
-                message="Incoming Channel Partner API payload is empty"
-            )
-            return __api_response(400, "error", "Missing request payload", "Payload cannot be empty")
-
-        data = frappe.parse_json(payload)
-
         # --- Check if already exists ---
         existing_partner = __find_existing_partner(data)
         if existing_partner:
@@ -230,20 +313,6 @@ def create_channel_partner(headers: dict = None, payload: dict = None):
         frappe.log_error(title="Unhandled API Error", message=frappe.get_traceback())
         return __api_response(500, "error", "Internal Server Error", str(e))
 
-def __api_response(status_code, status, message, hint=None, **extra):
-    """ REST API response wrapper."""
-    response = {
-        "status": status,
-        "status_code": status_code,
-        "message": message,
-    }
-    if hint:
-        response["hint"] = hint
-    response.update(extra)
-    frappe.local.response["http_status_code"] = status_code
-    return response
-
-
 def __find_existing_partner(data):
     """Check for an existing Channel Partner by unique identifiers like PAN or Email."""
     filters = []
@@ -267,6 +336,8 @@ def __get_zone(zone:str):
         zone_doc.zone = zone.strip()
         zone_doc.insert(ignore_permissions=True)
         return zone_doc.name
+    
+
 def __get_contact(contact_data:dict):
     """Create or get a Contact record for a Channel Partner."""
     email_id = contact_data.get("email")
@@ -326,6 +397,9 @@ def __get_address(address_data: dict):
     return address_doc.name
 
 def __update_channel_partner(data):
+    """
+        Checks for difference in existing Channel Partner and updates fields if necessary. 
+    """
     partner_name = __find_existing_partner(data)
     if not partner_name:
         return None  
@@ -388,5 +462,24 @@ def __update_channel_partner(data):
                 hint = str(e)
             )
     else:
-        frappe.logger().info(f"No changes detected for Channel Partner {partner.name}")
+        return __api_response(
+                    status_code=201,
+                    status = "success",
+                    message=f"No Change in Channel Partner {partner.name}",
+                    created_by=frappe.session.user,
+                    partner=partner.name,
+                    updated_fields=updated_fields
+        )
 
+def __api_response(status_code, status, message, hint=None, **extra):
+    """ REST API response wrapper."""
+    response = {
+        "status": status,
+        "status_code": status_code,
+        "message": message,
+    }
+    if hint:
+        response["hint"] = hint
+    response.update(extra)
+    frappe.local.response["http_status_code"] = status_code
+    return response
