@@ -32,7 +32,7 @@
    }
   ],
   "search_bar": 1,
-  "send_welcome_email": 1,
+  "send_welcome_email": 0,
   "simultaneous_sessions": 2,
   "social_logins": [
    {

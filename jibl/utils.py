@@ -152,7 +152,8 @@ def create_channel_partner(headers: dict = None, payload: dict = None):
 
         # Core Info
         partner.gender = data.get("gender")
-        partner.zone = data.get("zone")
+
+        partner.zone = __get_zone(data.get("zone"))
 
         # KYC / Compliance
         partner.pan = data.get("pan")
@@ -257,6 +258,15 @@ def __find_existing_partner(data):
             return partner
     return None
 
+def __get_zone(zone:str):
+    """ """
+    if zone and frappe.db.exists("Zone",zone.strip()):
+        return zone.strip()
+    else:
+        zone_doc = frappe.new_doc("Zone")
+        zone_doc.zone = zone.strip()
+        zone_doc.insert(ignore_permissions=True)
+        return zone_doc.name
 def __get_contact(contact_data:dict):
     """Create or get a Contact record for a Channel Partner."""
     email_id = contact_data.get("email")
@@ -324,7 +334,7 @@ def __update_channel_partner(data):
     # Check for changes in fields and update 
     for field in [
         "first_name", "middle_name", "last_name", "date_of_birth",
-        "gender", "zone", "pan", "aadhar", "gst_certificate_number",
+        "gender", "pan", "aadhar", "gst_certificate_number",
         "area_manager", "area_manager_code", "regional_manager", "regional_manager_code",
         "zonal_manager", "zonal_manager_code", "referrer", "referrer_code", "referral_source",
         "level", "training_partner_name", "registration_date", "training_start_datetime",
@@ -356,6 +366,7 @@ def __update_channel_partner(data):
             partner.contact = new_contact
             updated_fields.append("contact")
 
+    partner.zone = __get_zone(data.get("zone"))
     # Only save if something changed
     if updated_fields:
         try:
