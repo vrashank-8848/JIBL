@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2025-10-08 16:22:54.720247",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "insurer_code",
+  "contact_person",
+  "email",
+  "address",
+  "column_break_xrjrs",
+  "contract_start_date",
+  "contract_end_date",
+  "accounting_tab",
+  "tds_applicable",
+  "pan_number",
+  "beneficiary_name",
+  "bank_name",
+  "account_number",
+  "irdai_registration_no",
+  "column_break_pv1dt",
+  "ifsc_code",
+  "gst_account",
+  "gstin",
+  "gst_hsn_code",
+  "gst_state_code",
+  "settlement_frequency",
+  "products_tab",
+  "insurance_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "insurance_category",
+   "fieldtype": "Table",
+   "label": "Insurance ",
+   "options": "Insurance Categories"
+  },
+  {
+   "fieldname": "insurer_code",
+   "fieldtype": "Data",
+   "label": "Insurer Code"
+  },
+  {
+   "fetch_from": "contact_person.email_id",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Link",
+   "label": "Contact Person",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date"
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "Contract End Date"
+  },
+  {
+   "fieldname": "column_break_xrjrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "settlement_frequency",
+   "fieldtype": "Select",
+   "label": "Settlement Frequency",
+   "options": "\nMonthly\nQuarterly\nOn Sales\nOn Maturity"
+  },
+  {
+   "default": "0",
+   "fieldname": "tds_applicable",
+   "fieldtype": "Check",
+   "label": "TDS Applicable"
+  },
+  {
+   "fieldname": "column_break_pv1dt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "products_tab",
+   "fieldtype": "Tab Break",
+   "label": "Products"
+  },
+  {
+   "fieldname": "accounting_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "Pan Number"
+  },
+  {
+   "fieldname": "gstin",
+   "fieldtype": "Data",
+   "label": "GSTIN"
+  },
+  {
+   "fieldname": "gst_state_code",
+   "fieldtype": "Data",
+   "label": "GST State Code"
+  },
+  {
+   "fieldname": "beneficiary_name",
+   "fieldtype": "Data",
+   "label": "Beneficiary Name"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number "
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "gst_hsn_code",
+   "fieldtype": "Link",
+   "label": "GST HSN Code",
+   "options": "GST HSN Code"
+  },
+  {
+   "fieldname": "irdai_registration_no",
+   "fieldtype": "Data",
+   "label": "IRDAI Registration No"
+  },
+  {
+   "fieldname": "gst_account",
+   "fieldtype": "Link",
+   "label": "GST Account",
+   "options": "GST Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-10 13:01:38.833101",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Insurer",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

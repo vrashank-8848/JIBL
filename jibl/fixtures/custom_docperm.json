@@ -1,0 +1,15 @@
+[
+ {
+  "amend": 1,
+  "create": 1,
+  "doctype": "Custom DocPerm",
+  "export": 1,
+  "modified": "2025-10-13 11:42:05.002583",
+  "name": "rsgi655ahc",
+  "parent": "Sales Invoice",
+  "read": 1,
+  "role": "Insurance API",
+  "submit": 1,
+  "write": 1
+ }
+]

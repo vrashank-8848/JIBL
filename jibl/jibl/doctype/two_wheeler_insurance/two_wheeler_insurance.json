@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:deal_id",
+ "creation": "2025-10-14 11:33:55.541753",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "insurer",
+  "state",
+  "deal_id",
+  "deal_start_date",
+  "deal_end_date",
+  "zones",
+  "policy_type",
+  "fuel_types",
+  "business_types",
+  "vehicle_subclass",
+  "rto_tab",
+  "rto",
+  "vehicle_information_tab",
+  "vehicle_age_range_lower",
+  "vehicle_age_range_upper",
+  "cc_start_range",
+  "cc_end_range"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurer",
+   "fieldtype": "Link",
+   "label": "Insurer",
+   "options": "Insurer"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Table MultiSelect",
+   "label": "States",
+   "options": "States"
+  },
+  {
+   "fieldname": "deal_id",
+   "fieldtype": "Data",
+   "label": "Deal Id",
+   "unique": 1
+  },
+  {
+   "fieldname": "deal_start_date",
+   "fieldtype": "Date",
+   "label": "Deal Start Date"
+  },
+  {
+   "fieldname": "deal_end_date",
+   "fieldtype": "Date",
+   "label": "Deal End Date"
+  },
+  {
+   "fieldname": "zones",
+   "fieldtype": "Table MultiSelect",
+   "label": "Zones",
+   "options": "Zones"
+  },
+  {
+   "fieldname": "policy_type",
+   "fieldtype": "Table MultiSelect",
+   "label": "Policy Type",
+   "options": "Policy Types"
+  },
+  {
+   "fieldname": "fuel_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Fuel Types",
+   "options": "Fuel Types"
+  },
+  {
+   "fieldname": "business_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Business Types",
+   "options": "Business Types"
+  },
+  {
+   "fieldname": "vehicle_subclass",
+   "fieldtype": "Table MultiSelect",
+   "label": "Vehicle Subclass",
+   "options": "Vehicle Subclasses"
+  },
+  {
+   "fieldname": "rto",
+   "fieldtype": "Table",
+   "label": "RTO",
+   "options": "RTO"
+  },
+  {
+   "fieldname": "vehicle_age_range_lower",
+   "fieldtype": "Float",
+   "label": "Vehicle Age Range (Lower)"
+  },
+  {
+   "fieldname": "vehicle_age_range_upper",
+   "fieldtype": "Float",
+   "label": "Vehicle Age Range (Upper)"
+  },
+  {
+   "fieldname": "rto_tab",
+   "fieldtype": "Tab Break",
+   "label": "RTO"
+  },
+  {
+   "fieldname": "cc_start_range",
+   "fieldtype": "Float",
+   "label": "CC Start Range"
+  },
+  {
+   "fieldname": "cc_end_range",
+   "fieldtype": "Float",
+   "label": "CC End Range"
+  },
+  {
+   "fieldname": "vehicle_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vehicle Information"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-17 13:26:59.213389",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Two Wheeler Insurance",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

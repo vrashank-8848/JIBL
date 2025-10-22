@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:deal_id",
+ "creation": "2025-10-14 11:27:58.398788",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "deal_id",
+  "insurer",
+  "states",
+  "zone",
+  "policy_types",
+  "column_break_4gtgs",
+  "fuel_type",
+  "number_of_wheels",
+  "vehicle_subclass",
+  "business_types",
+  "rto_tab",
+  "rto",
+  "vehicle_information_tab",
+  "vehicle_age_rangeupper",
+  "vehicle_age_rangelower",
+  "cc_start_range",
+  "cc_end_range"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurer",
+   "fieldtype": "Link",
+   "label": "Insurer",
+   "options": "Insurer"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Table MultiSelect",
+   "label": "Zone",
+   "options": "Zones"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Table MultiSelect",
+   "label": "Fuel Type",
+   "options": "Fuel Types"
+  },
+  {
+   "fieldname": "number_of_wheels",
+   "fieldtype": "Int",
+   "label": "Number of Wheels"
+  },
+  {
+   "fieldname": "vehicle_subclass",
+   "fieldtype": "Link",
+   "label": "Vehicle Subclass",
+   "options": "Vehicle Subclass"
+  },
+  {
+   "fieldname": "states",
+   "fieldtype": "Table MultiSelect",
+   "label": "States",
+   "options": "States"
+  },
+  {
+   "fieldname": "policy_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Policy Types",
+   "options": "Policy Types"
+  },
+  {
+   "fieldname": "business_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Business Types",
+   "options": "Business Types"
+  },
+  {
+   "fieldname": "deal_id",
+   "fieldtype": "Data",
+   "label": "Deal Id",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_4gtgs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rto_tab",
+   "fieldtype": "Tab Break",
+   "label": "RTO"
+  },
+  {
+   "fieldname": "rto",
+   "fieldtype": "Table",
+   "label": "RTO",
+   "options": "RTO"
+  },
+  {
+   "fieldname": "vehicle_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "vehicle_age_rangeupper",
+   "fieldtype": "Data",
+   "label": "Vehicle Age Range(Upper)"
+  },
+  {
+   "fieldname": "vehicle_age_rangelower",
+   "fieldtype": "Data",
+   "label": "Vehicle Age Range(Lower)"
+  },
+  {
+   "fieldname": "cc_start_range",
+   "fieldtype": "Data",
+   "label": "CC Start Range"
+  },
+  {
+   "fieldname": "cc_end_range",
+   "fieldtype": "Data",
+   "label": "CC End Range"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-17 13:37:30.787473",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Vehicle Insurance",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

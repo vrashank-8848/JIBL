@@ -1,0 +1,53 @@
+[
+ {
+  "allowed_in_mentions": 1,
+  "api_key": "55c0ee6d63439e8",
+  "api_secret": "***************",
+  "bulk_actions": 1,
+  "dashboard": 1,
+  "desk_theme": "Light",
+  "doctype": "User",
+  "document_follow_frequency": "Daily",
+  "email": "api@jibl.com",
+  "enabled": 1,
+  "first_name": "JIBL API",
+  "form_sidebar": 1,
+  "full_name": "JIBL API",
+  "language": "en",
+  "last_active": "2025-10-22 10:53:43.824029",
+  "last_reset_password_key_generated_on": "2025-10-13 11:22:25.555182",
+  "list_sidebar": 1,
+  "logout_all_sessions": 1,
+  "modified": "2025-10-13 11:43:05.661340",
+  "name": "api@jibl.com",
+  "notifications": 1,
+  "onboarding_status": "{}",
+  "reset_password_key": "661964b41d122e83188d3235ba2ea035cfefc47fea76065b05565692f3ba571e",
+  "roles": [
+   {
+    "parent": "api@jibl.com",
+    "parentfield": "roles",
+    "parenttype": "User",
+    "role": "Insurance API"
+   }
+  ],
+  "search_bar": 1,
+  "send_welcome_email": 1,
+  "simultaneous_sessions": 2,
+  "social_logins": [
+   {
+    "parent": "api@jibl.com",
+    "parentfield": "social_logins",
+    "parenttype": "User",
+    "provider": "frappe",
+    "userid": "afd22a1e970a7fea25f8d1252784ac12f9324f8"
+   }
+  ],
+  "thread_notify": 1,
+  "time_zone": "Asia/Kolkata",
+  "timeline": 1,
+  "user_type": "System User",
+  "username": "jibl_api",
+  "view_switcher": 1
+ }
+]

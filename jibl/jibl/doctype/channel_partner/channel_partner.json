@@ -1,0 +1,567 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:email",
+ "creation": "2025-10-15 10:14:44.560558",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "last_name",
+  "middle_name",
+  "full_name",
+  "gender",
+  "column_break_qckdy",
+  "date_of_birth",
+  "contact",
+  "email",
+  "address",
+  "address_display",
+  "zone",
+  "accounts_section",
+  "account_number",
+  "ifsc_code",
+  "column_break_8svhg",
+  "pan",
+  "aadhar",
+  "section_break_6owvl",
+  "area_manager",
+  "regional_manager",
+  "zonal_manager",
+  "referrer",
+  "level",
+  "column_break_trrze",
+  "area_manager_code",
+  "regional_manager_code",
+  "zonal_manager_code",
+  "referrer_code",
+  "referral_source",
+  "profile_tab",
+  "profile_section",
+  "profile_status",
+  "pan_uploaded",
+  "aadhar_front_uploaded",
+  "aadhar_back_uploaded",
+  "cheque_uploaded",
+  "qualification_certificate_uploaded",
+  "gst_certificate_uploaded",
+  "gst_certificate_number",
+  "noc_uploaded",
+  "iib_noc_required",
+  "iib_noc_received_date",
+  "column_break_gzyhv",
+  "access_status_section",
+  "pan_authorised",
+  "aadhar_front_authorised",
+  "aadhar_back_authorised",
+  "cheque_authorised",
+  "bank_verification",
+  "qualification_certificate_authorised",
+  "iib_portal_verification",
+  "iib_clearance",
+  "training_and_certification_tab",
+  "section_break_np8xi",
+  "training_partner_name",
+  "registration_date",
+  "training_start_datetime",
+  "training_end_datetime",
+  "training_duration",
+  "exam_passed_date",
+  "exam_status_section",
+  "deactivation_status",
+  "uploaded_in_iib_portal",
+  "column_break_mdvxe",
+  "gi_score",
+  "li_score",
+  "gi_training_time",
+  "li_training_time",
+  "profile_approved_date",
+  "licensing__certificate_date",
+  "appointment_letter_issuance_date",
+  "document_dispatch__system_upload_date",
+  "onboard_status",
+  "deactivation_date",
+  "current_status",
+  "section_break_l2jz0",
+  "remarks",
+  "insurance_and_commission_tab",
+  "total_commission_amount",
+  "redeemable_commission_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fetch_from": "contact.email_id",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "unique": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone",
+   "options": "Zone"
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "label": "PAN"
+  },
+  {
+   "fieldname": "aadhar",
+   "fieldtype": "Data",
+   "label": "Aadhar"
+  },
+  {
+   "fieldname": "column_break_qckdy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6owvl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "area_manager",
+   "fieldtype": "Data",
+   "label": "Area Manager"
+  },
+  {
+   "fieldname": "regional_manager",
+   "fieldtype": "Data",
+   "label": "Regional Manager"
+  },
+  {
+   "fieldname": "zonal_manager",
+   "fieldtype": "Data",
+   "label": "Zonal Manager "
+  },
+  {
+   "fieldname": "referrer",
+   "fieldtype": "Data",
+   "label": "Referrer"
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Data",
+   "label": "Level"
+  },
+  {
+   "fieldname": "column_break_trrze",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "area_manager_code",
+   "fieldtype": "Data",
+   "label": "Area Manager Code"
+  },
+  {
+   "fieldname": "regional_manager_code",
+   "fieldtype": "Data",
+   "label": "Regional Manager Code"
+  },
+  {
+   "fieldname": "zonal_manager_code",
+   "fieldtype": "Data",
+   "label": "Zonal Manager Code"
+  },
+  {
+   "fieldname": "referrer_code",
+   "fieldtype": "Data",
+   "label": "Referrer Code"
+  },
+  {
+   "fieldname": "referral_source",
+   "fieldtype": "Data",
+   "label": "Referral Source"
+  },
+  {
+   "fieldname": "profile_section",
+   "fieldtype": "Section Break",
+   "label": "Profile"
+  },
+  {
+   "fieldname": "profile_status",
+   "fieldtype": "Select",
+   "label": "Profile Status",
+   "options": "\nApproved\nRejected"
+  },
+  {
+   "fieldname": "access_status_section",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Access Status",
+   "options": "\nActive\nInactive"
+  },
+  {
+   "default": "0",
+   "fieldname": "pan_uploaded",
+   "fieldtype": "Check",
+   "label": "PAN Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "aadhar_front_uploaded",
+   "fieldtype": "Check",
+   "label": "Aadhar Front Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "aadhar_back_uploaded",
+   "fieldtype": "Check",
+   "label": "Aadhar Back Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "cheque_uploaded",
+   "fieldtype": "Check",
+   "label": "Cheque Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "qualification_certificate_uploaded",
+   "fieldtype": "Check",
+   "label": "Qualification Certificate Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "gst_certificate_uploaded",
+   "fieldtype": "Check",
+   "label": "GST Certificate Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "noc_uploaded",
+   "fieldtype": "Check",
+   "label": "NOC Uploaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "iib_portal_verification",
+   "fieldtype": "Check",
+   "label": "IIB Portal Verification"
+  },
+  {
+   "default": "0",
+   "fieldname": "iib_clearance",
+   "fieldtype": "Check",
+   "label": "IIB Clearance"
+  },
+  {
+   "default": "0",
+   "fieldname": "iib_noc_required",
+   "fieldtype": "Check",
+   "label": "IIB NOC required"
+  },
+  {
+   "fieldname": "iib_noc_received_date",
+   "fieldtype": "Date",
+   "label": "IIB NOC Received Date"
+  },
+  {
+   "fieldname": "column_break_gzyhv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "pan_authorised",
+   "fieldtype": "Check",
+   "label": "PAN Authorised"
+  },
+  {
+   "default": "0",
+   "fieldname": "aadhar_front_authorised",
+   "fieldtype": "Check",
+   "label": "Aadhar Front Authorised"
+  },
+  {
+   "default": "0",
+   "fieldname": "aadhar_back_authorised",
+   "fieldtype": "Check",
+   "label": "Aadhar Back Authorised"
+  },
+  {
+   "default": "0",
+   "fieldname": "cheque_authorised",
+   "fieldtype": "Check",
+   "label": "Cheque Authorised"
+  },
+  {
+   "default": "0",
+   "fieldname": "bank_verification",
+   "fieldtype": "Check",
+   "label": "Bank Verification"
+  },
+  {
+   "depends_on": "eval: doc.gst_certificate_uploaded",
+   "fieldname": "gst_certificate_number",
+   "fieldtype": "Data",
+   "label": "GST Certificate Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "qualification_certificate_authorised",
+   "fieldtype": "Check",
+   "label": "Qualification Certificate Authorised"
+  },
+  {
+   "fieldname": "training_partner_name",
+   "fieldtype": "Data",
+   "label": "Training Partner Name"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "section_break_np8xi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "training_start_datetime",
+   "fieldtype": "Datetime",
+   "label": "Training Start Datetime"
+  },
+  {
+   "fieldname": "training_end_datetime",
+   "fieldtype": "Datetime",
+   "label": "Training End Datetime"
+  },
+  {
+   "fieldname": "training_duration",
+   "fieldtype": "Data",
+   "label": "Training Duration"
+  },
+  {
+   "fieldname": "exam_passed_date",
+   "fieldtype": "Date",
+   "label": "Exam Passed Date"
+  },
+  {
+   "fieldname": "exam_status_section",
+   "fieldtype": "Select",
+   "label": "Exam Status",
+   "options": "\nPassed\nPending"
+  },
+  {
+   "fieldname": "gi_score",
+   "fieldtype": "Float",
+   "label": "GI Score"
+  },
+  {
+   "fieldname": "li_score",
+   "fieldtype": "Float",
+   "label": "LI Score"
+  },
+  {
+   "description": "in hours",
+   "fieldname": "gi_training_time",
+   "fieldtype": "Float",
+   "label": "GI Training Time"
+  },
+  {
+   "description": "in hours",
+   "fieldname": "li_training_time",
+   "fieldtype": "Float",
+   "label": "LI Training Time"
+  },
+  {
+   "fieldname": "profile_approved_date",
+   "fieldtype": "Date",
+   "label": "Profile Approved Date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "licensing__certificate_date",
+   "fieldtype": "Date",
+   "label": "Licensing / Certificate Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "uploaded_in_iib_portal",
+   "fieldtype": "Check",
+   "label": "Uploaded in IIB Portal"
+  },
+  {
+   "fieldname": "appointment_letter_issuance_date",
+   "fieldtype": "Date",
+   "label": "Appointment Letter Issuance Date"
+  },
+  {
+   "description": "(ID Card/Appointment Letter/Certificate)",
+   "fieldname": "document_dispatch__system_upload_date",
+   "fieldtype": "Date",
+   "label": "Document Dispatch / System Upload Date"
+  },
+  {
+   "fieldname": "onboard_status",
+   "fieldtype": "Select",
+   "label": "Onboard Status",
+   "options": "\nActive\nDormant"
+  },
+  {
+   "default": "0",
+   "fieldname": "deactivation_status",
+   "fieldtype": "Check",
+   "label": "Deactivation Status"
+  },
+  {
+   "fieldname": "deactivation_date",
+   "fieldtype": "Date",
+   "label": "Deactivation Date"
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Select",
+   "label": "Current Status",
+   "options": "\nLead Created\nDocs Submitted\nDiscrepancy Raised\nTraining Initiated\nExam Pending\nOnboarded\nDe-Registered"
+  },
+  {
+   "fieldname": "profile_tab",
+   "fieldtype": "Tab Break",
+   "label": "Profile"
+  },
+  {
+   "fieldname": "training_and_certification_tab",
+   "fieldtype": "Tab Break",
+   "label": "Training and Certification"
+  },
+  {
+   "fieldname": "column_break_mdvxe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_l2jz0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "insurance_and_commission_tab",
+   "fieldtype": "Tab Break",
+   "label": "Insurance and Commission"
+  },
+  {
+   "fieldname": "total_commission_amount",
+   "fieldtype": "Currency",
+   "label": "Total Commission Amount"
+  },
+  {
+   "fieldname": "redeemable_commission_amount",
+   "fieldtype": "Currency",
+   "label": "Redeemable Commission Amount"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "column_break_8svhg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_display",
+   "fieldtype": "Small Text",
+   "label": "Address Display",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 12:08:31.290122",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Channel Partner",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Insurance API",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

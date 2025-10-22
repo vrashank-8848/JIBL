@@ -115,6 +115,14 @@ app_license = "MIT"
 # Document Events
 # ---------------
 # Hook on document methods and events
+custom_fixtures = [
+        {"dt": "Role", "filters": [["name", "in", ["Insurance API"]]]},
+        {"dt": "Custom DocPerm", "filters": [["role", "=", "Insurance API"]]},
+        {"dt": "User", "filters": [["name", "in", ["api@jibl.com"]]]},
+    ]
+
+
+commands = ["jibl.jibl.commands.export_fixtures.export_fixtures"]
 
 # doc_events = {
 # 	"*": {

@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-17 12:58:33.893442",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_subclass"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_subclass",
+   "fieldtype": "Link",
+   "label": "Vehicle Subclass",
+   "options": "Vehicle Subclass"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-17 12:58:33.893442",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Vehicle Subclasses",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

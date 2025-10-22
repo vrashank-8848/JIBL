@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-14 13:41:04.339903",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "policy_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "policy_type",
+   "fieldtype": "Link",
+   "label": "Policy Type",
+   "options": "Policy Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-17 14:58:12.180717",
+ "modified_by": "Administrator",
+ "module": "Jibl",
+ "name": "Policy Types",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
