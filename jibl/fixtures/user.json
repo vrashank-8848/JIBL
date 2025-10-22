@@ -1,8 +1,6 @@
 [
  {
   "allowed_in_mentions": 1,
-  "api_key": "55c0ee6d63439e8",
-  "api_secret": "***************",
   "bulk_actions": 1,
   "dashboard": 1,
   "desk_theme": "Light",
